@@ -1,0 +1,79 @@
+keytool -genkey -alias selfsigned_ssl_certificate -keyalg RSA -keysize 2048 -validity 700 -keypass velankani -storepass changeit -keystore ssl-certificate.jks
+
+keytool -list -keystore ssl-certificate.jks
+
+keytool -list -rfc -keystore ssl-certificate.jks
+
+keytool -importcert -trustcacerts -keystore keystore.p12 -storetype pkcs12 \ -alias root -file root.crt
+
+
+
+fitst step
+=======================
+
+keytool -genkey -alias selfsigned_ssl_certificate -keyalg RSA -keysize 2048 -validity 700 -keypass velankani -storepass velankani -keystore ssl-certificate.jks
+
+What is your first and last name?
+  [Unknown]:  velankani software
+What is the name of your organizational unit?
+  [Unknown]:  velankani
+What is the name of your organization?
+  [Unknown]:  velankani
+What is the name of your City or Locality?
+  [Unknown]:  bangalore
+What is the name of your State or Province?
+  [Unknown]:  KA
+What is the two-letter country code for this unit?
+  [Unknown]:  IN
+Is CN=velankani software, OU=velankani, O=velankani, L=bangalore, ST=KA, C=IN correct?
+  [no]:  yes
+
+===================================
+
+Third step
+===============================
+keytool -list -rfc -keystore ssl-certificate.jks
+
+D:\Example-poc\Workspaces\Example-poc\Spring-boot-https>keytool -list -rfc -keystore ssl-certificate.jks
+Enter keystore password:
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: selfsigned_ssl_certificate
+Creation date: 07-Jan-2020
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+-----BEGIN CERTIFICATE-----
+MIIDhTCCAm2gAwIBAgIEIOSsTTANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJJ
+TjELMAkGA1UECBMCS0ExEjAQBgNVBAcTCWJhbmdhbG9yZTESMBAGA1UEChMJdmVs
+YW5rYW5pMRIwEAYDVQQLEwl2ZWxhbmthbmkxGzAZBgNVBAMTEnZlbGFua2FuaSBz
+b2Z0d2FyZTAeFw0yMDAxMDcwNDI1MjZaFw0yMTEyMDcwNDI1MjZaMHMxCzAJBgNV
+BAYTAklOMQswCQYDVQQIEwJLQTESMBAGA1UEBxMJYmFuZ2Fsb3JlMRIwEAYDVQQK
+Ewl2ZWxhbmthbmkxEjAQBgNVBAsTCXZlbGFua2FuaTEbMBkGA1UEAxMSdmVsYW5r
+YW5pIHNvZnR3YXJlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn0mO
+VZxzka47uRYTAQQoxV7Q94tMtxQcsxezJRgml0Dr7oe109iHk+ufAvzLPdvfjkN5
+XEz40FXZU30XNSscpBNlYKX1JOm03wrL67fnrxpFQITlVKtkekF06V3sLS1684TJ
+DE5tJq4J836MkA+GhUQNBV6NZ4Jn6RSVYnJ69r6yGCARA0cnvVGSQtBJxRHVOhjo
+I0l+kzB1djr+TUINyU8k/+YYj/SBvCW/tcxPSna64uKDk/B4R35HPkvXK0i1GsZU
+jhlDXtNxEDCWWq0YnLZBoPP83NJNQe81/tAxYHiwNLvX0OfoYgF3nxHfUWhq7IMQ
+Tk0+yAC5Lw14J/BaSQIDAQABoyEwHzAdBgNVHQ4EFgQU68L78OFuXIBXX0GgzuUb
+vr6VdEowDQYJKoZIhvcNAQELBQADggEBAFG0bSISuwq2+5NLtNnRStq6WjMbdq98
+vDioXWGVVuBbPzVxVgh1tRPpf+6icT+WIIRRWSOirLYV0uc166BZKCCKh5ejpcP1
+zX8+PJvXa/UcpMgc8kdSfBiEZLfTqizauM9WW6FkeXznHyic9BSlrCWcKsdvoQyq
+ZqwpPvnZITCZzyiNUNTi4O9VicAztS+dVyqE5lvxZs3QGTFPrnLxRgmyV9eyYlkx
+om8puf0eGlCpUZyS1KgaJAwqn6UZKZehGUvhXyYbXoqZYP+A5W0w+85rA8p4VQCI
+yaUf1x/4a/R40bGp5kLLkw9fJbVP3iDU+cKsIa5Af1HkWrgLrr9ZNuU=
+-----END CERTIFICATE-----
+
+
+*******************************************
+*******************************************
+
+
+
+D:\Example-poc\Workspaces\Example-poc\Spring-boot-https>
+
+https://localhost:8443/alarm/15000
